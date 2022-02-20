@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { memo, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 
 import PropTypes from 'prop-types';
@@ -31,7 +31,7 @@ const Modal = ({ handleClose, children }) => {
   );
 };
 
-export default Modal;
+export default memo(Modal);
 
 Modal.propTypes = {
   handleClose: PropTypes.func.isRequired,

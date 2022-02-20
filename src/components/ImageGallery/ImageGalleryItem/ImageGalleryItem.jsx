@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import PropTypes from 'prop-types';
 import styles from './image-gallery-item.module.css';
 
@@ -9,7 +10,7 @@ const ImageGalleryItem = ({ image, alt, handleClick, largeImage }) => {
   );
 };
 
-export default ImageGalleryItem;
+export default memo(ImageGalleryItem);
 
 ImageGalleryItem.propTypes = {
     image: PropTypes.string.isRequired,
