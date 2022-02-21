@@ -1,4 +1,4 @@
-import { memo, useState } from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import styles from './searchbar.module.css'
@@ -42,7 +42,7 @@ const Searchbar = ({onSubmit}) => {
   );
 }
 
-export default memo(Searchbar);
+export default Searchbar;
 
 
 Searchbar.propTypes = {
