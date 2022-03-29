@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 import { searchImages } from '../shared/services/images';
 
@@ -54,11 +54,11 @@ export const App = () => {
     fetchImages();
   }, [search, page]);
 
-  const loadMore = () => {
+  const loadMore = useCallback(() => {
     setPage(state => state + 1);
-  };
+  }, []);
 
-  const changeSearch = newSearch => {
+  const changeSearch = useCallback(newSearch => {
     if (newSearch === search) {
       return;
     }
@@ -68,9 +68,9 @@ export const App = () => {
       ...state,
       images: [],
     }));
-  };
+  }, []);
 
-  const showModal = (image, alt) => {
+  const showModal = useCallback((image, alt) => {
     setModal({
       open: true,
       content: {
@@ -78,7 +78,7 @@ export const App = () => {
         alt,
       },
     });
-  };
+  }, []);
 
   const hideModal = () => {
     setModal({
